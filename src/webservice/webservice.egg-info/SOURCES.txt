@@ -1,0 +1,26 @@
+CHANGES.txt
+MANIFEST.in
+README.txt
+setup.cfg
+setup.py
+webservice/__init__.py
+webservice/tests.py
+webservice/views (copia).py
+webservice/views.py
+webservice.egg-info/PKG-INFO
+webservice.egg-info/SOURCES.txt
+webservice.egg-info/dependency_links.txt
+webservice.egg-info/entry_points.txt
+webservice.egg-info/not-zip-safe
+webservice.egg-info/requires.txt
+webservice.egg-info/top_level.txt
+webservice/static/favicon.ico
+webservice/static/footerbg.png
+webservice/static/headerbg.png
+webservice/static/ie6.css
+webservice/static/middlebg.png
+webservice/static/pylons.css
+webservice/static/pyramid-small.png
+webservice/static/pyramid.png
+webservice/static/transparent.gif
+webservice/templates/mytemplate (copia).pt

@@ -1,0 +1,43 @@
+try:
+    import configparser
+except ImportError:
+    import ConfigParser as configparser
+import sys
+syspaths = [
+    '/home/usuari/env/webservice/src/webservice',
+    '/home/usuari/env/webservice/eggs/cornice-0.13-py2.7.egg',
+    '/home/usuari/env/webservice/eggs/Paste-1.7.5.1-py2.7.egg',
+    '/usr/lib/python2.7/dist-packages',
+    '/home/usuari/env/webservice/eggs/PasteDeploy-1.5.0-py2.7.egg',
+    '/home/usuari/env/webservice/eggs/pyramid-1.4.1-py2.7.egg',
+    '/home/usuari/env/webservice/eggs/waitress-0.8.3-py2.7.egg',
+    '/home/usuari/env/webservice/eggs/pyramid_debugtoolbar-1.0.6-py2.7.egg',
+    '/home/usuari/env/webservice/eggs/translationstring-1.1-py2.7.egg',
+    '/home/usuari/env/webservice/eggs/venusian-1.0a8-py2.7.egg',
+    '/home/usuari/env/webservice/eggs/zope.deprecation-4.0.2-py2.7.egg',
+    '/home/usuari/env/webservice/eggs/zope.interface-4.0.5-py2.7-linux-i686.egg',
+    '/home/usuari/env/webservice/eggs/repoze.lru-0.6-py2.7.egg',
+    '/home/usuari/env/webservice/eggs/WebOb-1.2.3-py2.7.egg',
+    '/home/usuari/env/webservice/eggs/Chameleon-2.11-py2.7.egg',
+    '/home/usuari/env/webservice/eggs/Pygments-1.6-py2.7.egg',
+    ]
+
+for path in reversed(syspaths):
+    if path not in sys.path:
+        sys.path[0:0]=[path]
+
+
+from paste.deploy import loadapp
+
+if sys.version_info >= (2, 6):
+    from logging.config import fileConfig
+else:
+    from paste.script.util.logging_config import fileConfig
+
+
+configfile = "/home/usuari/env/webservice/production.ini"
+try:
+    fileConfig(configfile)
+except configparser.NoSectionError:
+    pass
+application = loadapp("config:" + configfile, name=None)
